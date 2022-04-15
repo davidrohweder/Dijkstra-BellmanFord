@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
 
     // *** Setup Environment
 
-    double wcs, wce, serial_duration, thread_duration;
+    double wcs, wce, serial_duration, parallel_duration;
     Graph* graph = new Graph; 
 
     generate_Graph(graph);
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 	get_walltime(&wcs);
 	parallel_Dijkstra(graph);
 	get_walltime(&wce);
-	serial_duration = wce-wcs;
+	parallel_duration = wce-wcs;
 
     int correct = 1;
     // compare results
