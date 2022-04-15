@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
 	
 	// benchmark parallel dijkstra's implementation
 	get_walltime(&wcs);
-	serial_Dijkstra(graph);
+	parallel_Dijkstra(graph);
 	get_walltime(&wce);
 	serial_duration = wce-wcs;
 
