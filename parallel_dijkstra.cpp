@@ -36,7 +36,7 @@ void parallel_Dijkstra(Graph* graph)
         visited[i] = false;    
     } // initalize all elements in distance vector to "infinity"
     
-    graph->serial_distance[graph->src] = 0; // source vertex has distance 0               
+    graph->parallel_distance[graph->src] = 0; // source vertex has distance 0               
     
     for(int i = 0; i < N; i++) {
         int s = smallest_Distance(graph->parallel_distance,visited); 
