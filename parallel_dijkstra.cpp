@@ -38,6 +38,7 @@ void parallel_Dijkstra(Graph* graph)
     
     graph->parallel_distance[graph->src] = 0; // source vertex has distance 0               
     
+    #pragma omp parallel for 
     for(int i = 0; i < N; i++) {
         int s = smallest_Distance(graph->parallel_distance,visited); 
         visited[s]=true;
