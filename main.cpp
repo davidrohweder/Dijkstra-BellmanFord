@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
     Graph* graph = new Graph; 
     int threadedVals[] = {1,2,4,8,10,15,20};
     generate_Graph(graph); 
-    //printGraph(graph); // -+- utility for proof of concept
+    printGraph(graph); // -+- utility for proof of concept
 
     // *** End Setup Environment
 
@@ -45,7 +45,8 @@ int main(int argc, char *argv[]) {
 	    serial_Dijkstra(graph);
 	    get_walltime(&wce);
 	    serial_duration = wce-wcs;
-	
+        printf("Serial Complete \n");
+
 	    // benchmark parallel dijkstra's implementation
 	    get_walltime(&wcs);
 	    parallel_Dijkstra(graph, threadedVals[z]);
