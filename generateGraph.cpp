@@ -95,5 +95,5 @@ void graph_Cleanup(Graph* graph){
     delete[] graph->graph;
     delete[] graph->serial_distance;
     delete[] graph->parallel_distance;
-    delete[] graph;
+    delete graph;
 }

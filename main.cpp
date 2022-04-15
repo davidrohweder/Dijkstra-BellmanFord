@@ -32,6 +32,7 @@ int main(int argc, char *argv[]) {
 
     double wcs, wce, serial_duration, parallel_duration;
     Graph* graph = new Graph; 
+    int threadedVals[] = {1,2,4,8,10,15,20};
 
     generate_Graph(graph);
     //printGraph(graph);
