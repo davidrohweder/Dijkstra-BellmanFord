@@ -37,12 +37,20 @@ void generate_Graph(Graph* graph_setup) {
     graph_setup->serial_distance = new int[N];
     graph_setup->parallel_distance = new int[N];
 
-    // Initialize Graph
+    // Initialize Values
 
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++){
             graph_setup->graph[i * N + j] = 0;
         }
+    }
+
+    for (int i = 0; i < N; i++) {
+        graph_setup->serial_distance[i] = 0;
+    }
+
+    for (int i = 0; i < N; i++) {
+        graph_setup->parallel_distance[i] = 0;
     }
 
     // Fill Graph
