@@ -31,6 +31,7 @@ void parallel_Dijkstra(Graph* graph, int P)
 
     omp_set_num_threads(P);
 
+    #pragma omp parallel for num_threads(P)
     for(int i = 0; i < N; i++) {
         graph->parallel_distance[i] = INT_MAX;
         visited[i] = false;    
