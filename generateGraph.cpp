@@ -95,6 +95,20 @@ void printGraph(Graph* graph) {
 
 
 /*
+    reset distances of graph between generations
+*/
+void resetDistance(Graph* graph) {
+    for (int i = 0; i < N; i++) {
+        graph->serial_distance[i] = 0;
+    }
+
+    for (int i = 0; i < N; i++) {
+        graph->parallel_distance[i] = 0;
+    }
+}
+
+
+/*
     cleanup graph struct from heap
 */
 void graph_Cleanup(Graph* graph){

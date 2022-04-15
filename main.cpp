@@ -32,11 +32,11 @@ int main(int argc, char *argv[]) {
     double wcs, wce, serial_duration, parallel_duration;
     Graph* graph = new Graph; 
     int threadedVals[] = {1,2,4,8,10,15,20};
+    generate_Graph(graph); //printGraph(graph); -- utility for proof of concept
 
     // *** End Setup Environment
 
     for (int z = 0; z < 7; z++) {
-        generate_Graph(graph); //printGraph(graph); -- utility for proof of concept
 
 	    // benchmark serial dijkstra's implementation
 	    get_walltime(&wcs);
@@ -65,6 +65,8 @@ int main(int argc, char *argv[]) {
         if (correct == 1) {
             printf("Dijkstra's Wall times (Thread#=:%d)- Parallel: %f, Serial: %f\n", threadedVals[z], parallel_duration, serial_duration);		
         }
+
+        resetDistance(graph));
     }
 
     // Cleanup
