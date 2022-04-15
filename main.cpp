@@ -14,7 +14,6 @@
 
 #include <sys/time.h>
 #include <iostream>
-#include <stdlib.h>
 #include "dijkstra.hpp"
 
 // **** End Includes
