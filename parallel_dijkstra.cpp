@@ -12,9 +12,7 @@
 
 // **** Includes
 
-#include <iostream>
 #include <climits>
-#include <stdio.h>
 #include <omp.h>
 #include "dijkstra.hpp"
 
