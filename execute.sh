@@ -1,4 +1,4 @@
 make clean
-make
 ./gitScript.sh
+make
 ./dijkstra
