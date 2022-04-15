@@ -14,7 +14,7 @@
 
 
 typedef struct Graph{
-    long* graph;
+    long long* graph;
     int src;
     long* serial_distance;
     long * parallel_distance;

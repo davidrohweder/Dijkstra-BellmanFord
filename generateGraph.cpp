@@ -28,12 +28,12 @@
 void generate_Graph(Graph* graph_setup) {
 
     // Setup 
-    long* connected = new long[N * N];
+    long long* connected = new long long[N * N];
     srand ( time(NULL) );
     
     // Initialize
     graph_setup->src = 0; 
-    graph_setup->graph = new long[N * N];
+    graph_setup->graph = new long long[N * N];
     graph_setup->serial_distance = new long[N];
     graph_setup->parallel_distance = new long[N];
 
