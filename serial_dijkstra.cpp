@@ -64,6 +64,8 @@ void serial_Dijkstra(Graph* graph)
                 s = i;
             }
         }
+
+
         visited[s]=true;
 
         for(int j = 0; j < N; j++) {

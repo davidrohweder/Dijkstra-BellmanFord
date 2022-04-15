@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 
     generate_Graph(graph);
     // Test Graph Utility, best seen on 5x5 example 
-    //printGraph(graph);
+    printGraph(graph);
 
     // *** End Setup Environment
 
