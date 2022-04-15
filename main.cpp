@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
             printf("Dijkstra's Wall times (Thread#=:%d)- Parallel: %f, Serial: %f\n", threadedVals[z], parallel_duration, serial_duration);		
         }
 
-        resetDistance(graph));
+        resetDistance(graph);
     }
 
     // Cleanup
