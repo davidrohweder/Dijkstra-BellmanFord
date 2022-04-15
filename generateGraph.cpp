@@ -37,6 +37,14 @@ void generate_Graph(Graph* graph_setup) {
     graph_setup->serial_distance = new int[N];
     graph_setup->parallel_distance = new int[N];
 
+    // Initialize Graph
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++){
+            graph_setup->graph[i * N + j] = 0;
+        }
+    }
+
     // Fill Graph
     for (int i = 0; i < N; i++) {
         printf("{");
@@ -45,7 +53,7 @@ void generate_Graph(Graph* graph_setup) {
             int chance1 = rand() % 2;
             int chance2 = rand() % 10; // can switch between the amount of edges desired
 
-            if (chance1 == 0 && connected[i * N + j] == 0) {
+            if (chance1 == 0 && connected[i * N + j] == 0 && !(j==i)) {
                 int randNum = rand() % 10;
                 graph_setup->graph[i * N + j] = randNum;
                 graph_setup->graph[j * N + i] = randNum;
