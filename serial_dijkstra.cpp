@@ -29,12 +29,11 @@ void serial_Dijkstra(Graph* graph)
     long* visited = new long[N];
     
     for(int i = 0; i < N; i++) {
-        graph->parallel_distance[i] = INT_MAX;
+        graph->serial_distance[i] = INT_MAX;
         visited[i] = 0;    
     } // initalize all elements in distance vector to "infinity"
     
-    graph->parallel_distance[graph->src] = 0; // source vertex has distance 0               
-    
+    graph->serial_distance[graph->src] = 0; // source vertex has distance 0               
     
     for(int i = 0; i < N; i++) {
         int s, min;
@@ -44,11 +43,12 @@ void serial_Dijkstra(Graph* graph)
             s = z;
             }
         } // find vertex with shortest minimum distance
-        visited[s]=1;
+        
+        visited[s] = 1;
 
         for(int j = 0; j < N; j++) {
-            if(!visited[j] == 0 && graph->graph[s * N + j] && graph->parallel_distance[s] != INT_MAX && graph->parallel_distance[s] + graph->graph[s * N + j] < graph->parallel_distance[j]) {
-                graph->parallel_distance[j]= graph->parallel_distance[s] + graph->graph[s * N + j];
+            if(visited[j] == 1 && graph->graph[s * N + j] && graph->serial_distance[s] != INT_MAX && graph->serial_distance[s] + graph->graph[s * N + j] < graph->serial_distance[j]) {
+                graph->serial_distance[j]= graph->serial_distance[s] + graph->graph[s * N + j];
             }
         } // updating the distance of neighbouring vertex
     }
