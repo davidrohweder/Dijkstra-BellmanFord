@@ -23,7 +23,7 @@
 
 
 /*
-
+    get times of parallel vs serial dijkstra over several thread pool sizes
 */
 int main(int argc, char *argv[]) {
 
@@ -32,7 +32,8 @@ int main(int argc, char *argv[]) {
     double wcs, wce, serial_duration, parallel_duration;
     Graph* graph = new Graph; 
     int threadedVals[] = {1,2,4,8,10,15,20};
-    generate_Graph(graph); //printGraph(graph); -- utility for proof of concept
+    generate_Graph(graph); 
+    //printGraph(graph); // -+- utility for proof of concept
 
     // *** End Setup Environment
 

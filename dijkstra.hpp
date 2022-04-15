@@ -42,7 +42,7 @@ void graph_Cleanup(Graph*);
 
 void printGraph(Graph*);
 
-void resetDistance(Graph*)
+void resetDistance(Graph*);
 
 
 // **** End Function Prototypes
