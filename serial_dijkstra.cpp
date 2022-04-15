@@ -24,25 +24,6 @@
 
 
 /*
-    find vertex with shortest minimum distance
-*/
-int smallest_Distance(int distance[], bool visited[])
-{
-    int minimum = INT_MAX , idx;
-              
-    for(int i = 0; i < N; i++) 
-    {
-        if(visited[i] == false && distance[i] <= minimum)      
-        {
-            minimum = distance[i];
-            idx = i;
-        }
-    }
-    return idx;
-}
-
-
-/*
     Naive, Serial Implementation of Dijksta's Algorithm... O(|V|) runtime and O(|V|*|E|) storage 
 */
 void serial_Dijkstra(Graph* graph)
@@ -57,7 +38,14 @@ void serial_Dijkstra(Graph* graph)
     graph->serial_distance[graph->src] = 0; // source vertex has distance 0               
     
     for(int i = 0; i < N; i++) {
-        int s = smallest_Distance(graph->serial_distance,visited); 
+        int s, min;
+        for (int z = 0; i < N; i++) {
+            if(visited[z] == false && graph->serial_distance[z] <= min) {
+            min = graph->serial_distance[z];
+            s = z;
+            }
+        } // find vertex with shortest minimum distance
+        
         visited[s]=true;
 
         for(int j = 0; j < N; j++) {

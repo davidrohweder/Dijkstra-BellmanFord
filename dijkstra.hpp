@@ -23,8 +23,6 @@ typedef struct Graph{
 #define P 20
 #define N 10000
 
-// graph[i][j] ==> graph[i * N + j]
-
 
 // **** End Global Declarations
 
@@ -33,8 +31,6 @@ typedef struct Graph{
 
 
 void get_walltime(double*);
-
-int smallest_Distance(int[], bool[]); 
 
 void serial_Dijkstra(Graph*);
 

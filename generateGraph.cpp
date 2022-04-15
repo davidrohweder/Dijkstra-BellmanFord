@@ -76,6 +76,9 @@ void generate_Graph(Graph* graph_setup) {
 }
 
 
+/*
+    print graph for sanity check to see that logic makes sense 
+*/
 void printGraph(Graph* graph) {
    for (int i = 0; i < N; i++) {
         printf("{");
@@ -91,6 +94,9 @@ void printGraph(Graph* graph) {
 }
 
 
+/*
+    cleanup graph struct from heap
+*/
 void graph_Cleanup(Graph* graph){
     delete[] graph->graph;
     delete[] graph->serial_distance;
