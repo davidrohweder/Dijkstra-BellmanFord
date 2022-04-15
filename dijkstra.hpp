@@ -23,6 +23,8 @@ typedef struct Graph{
 #define P 20
 #define N 5
 
+// graph[i][j] ==> graph[i * N + j]
+
 
 // **** End Global Declarations
 
