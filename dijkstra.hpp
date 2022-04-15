@@ -20,7 +20,7 @@ typedef struct Graph{
     long * parallel_distance;
 } Graph;
 
-#define N 40000
+#define N 30000
 
 
 // **** End Global Declarations
