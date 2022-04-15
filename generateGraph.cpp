@@ -33,7 +33,7 @@ void generate_Graph(Graph* graph_setup) {
     
     // Initialize
     graph_setup->src = 0; 
-    graph_setup->graph = new int[N * N];
+    graph_setup->graph = new long long[N * N];
     graph_setup->serial_distance = new int[N];
     graph_setup->parallel_distance = new int[N];
 
