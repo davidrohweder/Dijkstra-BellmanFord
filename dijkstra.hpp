@@ -21,7 +21,7 @@ typedef struct Graph{
 } Graph;
 
 #define P 20
-#define N 1000
+#define N 10000
 
 // graph[i][j] ==> graph[i * N + j]
 
