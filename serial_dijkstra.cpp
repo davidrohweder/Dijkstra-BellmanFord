@@ -57,7 +57,13 @@ void serial_Dijkstra(Graph* graph)
     graph->serial_distance[graph->src] = 0; // source vertex has distance 0               
     
     for(int i = 0; i < N; i++) {
-        int s = smallest_Distance(graph->serial_distance,visited); 
+        int s, minimum;
+        for(int i = 0; i < N; i++) {
+        if(visited[i] == false && graph->serial_distance[i] <= minimum) {
+                minimum = graph->serial_distance[i];
+                s = i;
+            }
+        }
         visited[s]=true;
 
         for(int j = 0; j < N; j++) {

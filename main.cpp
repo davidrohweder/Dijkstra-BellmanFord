@@ -35,11 +35,10 @@ int main(int argc, char *argv[]) {
     int threadedVals[] = {1,2,4,8,10,15,20};
 
     generate_Graph(graph);
+    // Test Graph Utility, best seen on 5x5 example 
     //printGraph(graph);
 
     // *** End Setup Environment
-
-    int src = 0;
 
 	// benchmark serial dijkstra's implementation
 	get_walltime(&wcs);
