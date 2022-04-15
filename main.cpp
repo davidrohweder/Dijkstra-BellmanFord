@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
     Graph* graph = new Graph; 
     int threadedVals[] = {1,2,4,8,10,15,20};
     generate_Graph(graph); 
-    printGraph(graph); // -+- utility for proof of concept
+    //printGraph(graph); // -+- utility for proof of concept
 
     // *** End Setup Environment
 
