@@ -40,7 +40,13 @@ void parallel_Dijkstra(Graph* graph)
     
     #pragma omp parallel for schedule(dynamic)
     for(int i = 0; i < N; i++) {
-        int s = smallest_Distance(graph->parallel_distance,visited); 
+        int s, min;
+        for (int z = 0; i < N; i++) {
+            if(visited[z] == false && graph->serial_distance[z] <= min) {
+            min = graph->serial_distance[z];
+            s = z;
+            }
+        } // find vertex with shortest minimum distance
         visited[s]=true;
 
         for(int j = 0; j < N; j++) {
