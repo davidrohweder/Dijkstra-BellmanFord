@@ -27,11 +27,11 @@
 */
 void parallel_Dijkstra(Graph* graph)
 {
-    bool* visited = new bool[N];
+    long* visited = new long[N];
     
     for(int i = 0; i < N; i++) {
         graph->parallel_distance[i] = INT_MAX;
-        visited[i] = false;    
+        visited[i] = 0;    
     } // initalize all elements in distance vector to "infinity"
     
     graph->parallel_distance[graph->src] = 0; // source vertex has distance 0               
@@ -40,15 +40,15 @@ void parallel_Dijkstra(Graph* graph)
     for(int i = 0; i < N; i++) {
         int s, min;
         for (int z = 0; i < N; i++) {
-            if(visited[z] == false && graph->serial_distance[z] <= min) {
+            if(visited[z] == 0 && graph->serial_distance[z] <= min) {
             min = graph->serial_distance[z];
             s = z;
             }
         } // find vertex with shortest minimum distance
-        visited[s]=true;
+        visited[s]=1;
 
         for(int j = 0; j < N; j++) {
-            if(!visited[j] && graph->graph[s * N + j] && graph->parallel_distance[s] != INT_MAX && graph->parallel_distance[s] + graph->graph[s * N + j] < graph->parallel_distance[j]) {
+            if(!visited[j] == 0 && graph->graph[s * N + j] && graph->parallel_distance[s] != INT_MAX && graph->parallel_distance[s] + graph->graph[s * N + j] < graph->parallel_distance[j]) {
                 graph->parallel_distance[j]= graph->parallel_distance[s] + graph->graph[s * N + j];
             }
         } // updating the distance of neighbouring vertex

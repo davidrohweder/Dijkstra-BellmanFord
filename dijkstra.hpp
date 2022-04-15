@@ -16,11 +16,11 @@
 typedef struct Graph{
     long long* graph;
     int src;
-    int* serial_distance;
-    int* parallel_distance;
+    long* serial_distance;
+    long * parallel_distance;
 } Graph;
 
-#define N 25200
+#define N 10000
 
 
 // **** End Global Declarations
