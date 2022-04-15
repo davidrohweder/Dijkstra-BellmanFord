@@ -57,7 +57,7 @@ void generate_Graph(Graph* graph_setup) {
                 graph_setup->graph[i * N + j] = randNum;
                 graph_setup->graph[j * N + i] = randNum;
                 connected[i * N + j] = 1;
-            } // reduce lilkey hood to have connections . also do not change connection if exists
+            } // reduce lilkey hood to have connections . also do not change connection if exists or create one if self
 
         }
     }
@@ -66,6 +66,7 @@ void generate_Graph(Graph* graph_setup) {
     delete[] connected;
 
 }
+
 
 void printGraph(Graph* graph) {
    for (int i = 0; i < N; i++) {
@@ -80,6 +81,7 @@ void printGraph(Graph* graph) {
         printf("}\n");
     }
 }
+
 
 void graph_Cleanup(Graph* graph){
     delete[] graph->graph;
