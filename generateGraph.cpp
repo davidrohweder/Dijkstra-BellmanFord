@@ -12,6 +12,7 @@
 
 // **** Includes
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -29,33 +30,30 @@ void generate_Graph(Graph* graph_setup) {
     // Setup 
     int* connected = new int[N * N];
     srand ( time(NULL) );
-    return;
+    
     // Initialize
     graph_setup->src = 0; 
-    return;
     graph_setup->graph = new int[N * N];
     graph_setup->serial_distance = new int[N];
     graph_setup->parallel_distance = new int[N];
-    return;
-
-
 
     // Fill Graph
     for (int i = 0; i < N; i++) {
-
+        printf("{");
         for (int j = 0; j < N; j++){
 
             int chance1 = rand() % 2;
-            int chance2 = rand() % 10;
+            int chance2 = rand() % 10; // can switch between the amount of edges desired
 
-            if (chance1 == 0 && chance2 == 0 && connected[i * N + j] == 0) {
+            if (chance1 == 0 && connected[i * N + j] == 0) {
                 int randNum = rand() % 10;
                 graph_setup->graph[i * N + j] = randNum;
                 graph_setup->graph[j * N + i] = randNum;
                 connected[i * N + j] = 1;
             } // reduce lilkey hood to have connections . also do not change connection if exists
-            
+            printf(",%d,", graph_setup->graph[i * N + j]);
         }
+        printf("}\n");
     }
 
     // Cleanup
@@ -63,8 +61,19 @@ void generate_Graph(Graph* graph_setup) {
 
 }
 
+void printGraph(Graph* graph) {
+   for (int i = 0; i < N; i++) {
+        printf("{");
+        for (int j = 0; j < N; j++){
+            printf(",%d,", graph->graph[i * N + j]);
+        }
+        printf("}\n");
+    }
+}
+
 void graph_Cleanup(Graph* graph){
     delete[] graph->graph;
     delete[] graph->serial_distance;
     delete[] graph->parallel_distance;
+    delete[] graph;
 }

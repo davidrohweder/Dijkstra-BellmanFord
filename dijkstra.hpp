@@ -12,21 +12,23 @@
 
 // **** Global Declarations
 
+
 typedef struct Graph{
     int* graph;
     int src;
     int* serial_distance;
     int* parallel_distance;
-
 } Graph;
 
 #define P 20
-#define N 10
+#define N 5
+
 
 // **** End Global Declarations
 
 
 // **** Function Prototypes
+
 
 void get_walltime(double*);
 
