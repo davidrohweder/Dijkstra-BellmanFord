@@ -51,7 +51,7 @@ void serial_Dijkstra(Graph* graph)
     bool* visited = new bool[N];
     
     for(int i = 0; i < N; i++) {
-        graph->parallel_distance][i] = INT_MAX;
+        graph->parallel_distance[i] = INT_MAX;
         visited[i] = false;    
     } // initalize all elements in distance vector to "infinity"
     
