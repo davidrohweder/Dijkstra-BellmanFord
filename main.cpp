@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
         for (int i = 0; i < N; i++) {
         
             if (graph->serial_distance[i] != graph->parallel_distance[i]) {
-                printf("Outputs are invalid! Serial distance[%d]: %ld, Parallel Distance[%d]: %ld \n", i, graph->serial_distance[i], i, graph->parallel_distance[i]);        
+                printf("Outputs are invalid! Serial distance[%d]: %d, Parallel Distance[%d]: %d \n", i, graph->serial_distance[i], i, graph->parallel_distance[i]);        
                 correct = 0;
                 break;
             }
