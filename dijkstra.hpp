@@ -21,7 +21,7 @@ typedef struct Graph{
 } Graph;
 
 #define P 20
-#define N 750000
+#define N 75000
 
 
 // **** End Global Declarations
