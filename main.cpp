@@ -36,37 +36,38 @@ int main(int argc, char *argv[]) {
 
     generate_Graph(graph);
     // Test Graph Utility, best seen on 5x5 example 
-    printGraph(graph);
+    //printGraph(graph);
 
     // *** End Setup Environment
 
-	// benchmark serial dijkstra's implementation
-	get_walltime(&wcs);
-	serial_Dijkstra(graph);
-	get_walltime(&wce);
-	serial_duration = wce-wcs;
+    for (int z = 0; z < 7; z++) {
+	    // benchmark serial dijkstra's implementation
+	    get_walltime(&wcs);
+	    serial_Dijkstra(graph);
+	    get_walltime(&wce);
+	    serial_duration = wce-wcs;
 	
-	// benchmark parallel dijkstra's implementation
-	get_walltime(&wcs);
-	parallel_Dijkstra(graph);
-	get_walltime(&wce);
-	parallel_duration = wce-wcs;
+	    // benchmark parallel dijkstra's implementation
+	    get_walltime(&wcs);
+	    parallel_Dijkstra(graph);
+	    get_walltime(&wce);
+	    parallel_duration = wce-wcs;
 
-    int correct = 1;
-    // compare results
-    for (int i = 0; i < N; i++) {
+        int correct = 1;
+        // compare results
+        for (int i = 0; i < N; i++) {
         
-        if (graph->serial_distance[i] != graph->parallel_distance[i]) {
-            printf("Outputs are invalid! Serial distance[%d]: %d, Parallel Distance[%d]: %d \n", i, graph->serial_distance[i], i, graph->parallel_distance[i]);        
-            correct = 0;
-            break;
+            if (graph->serial_distance[i] != graph->parallel_distance[i]) {
+                printf("Outputs are invalid! Serial distance[%d]: %d, Parallel Distance[%d]: %d \n", i, graph->serial_distance[i], i, graph->parallel_distance[i]);        
+                correct = 0;
+                break;
+            }
         }
 
-    }
-
-    // Output walltimes
-    if (correct == 1) {
-        printf("Dijkstra's Wall times - Parallel: %f, Serial: %f\n", parallel_duration, serial_duration);		
+        // Output walltimes
+        if (correct == 1) {
+            printf("Dijkstra's Wall times (Thread#=:%d)- Parallel: %f, Serial: %f\n", threadedVals[z], parallel_duration, serial_duration);		
+        }
     }
 
     // Cleanup
