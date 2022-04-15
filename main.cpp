@@ -13,7 +13,7 @@
 // **** Includes
 
 #include <sys/time.h>
-#include <iostream>
+#include <stdio.h>
 #include "dijkstra.hpp"
 
 // **** End Includes
