@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
 
     // Output walltimes
     if (correct == 1) {
-        printf("Dijkstra's Wall times - Parallel: %f, Serial: %f\n", thread_duration, serial_duration);		
+        printf("Dijkstra's Wall times - Parallel: %f, Serial: %f\n", parallel_duration, serial_duration);		
     }
 
     // Cleanup
