@@ -38,7 +38,7 @@ void parallel_Dijkstra(Graph* graph)
     
     graph->parallel_distance[graph->src] = 0; // source vertex has distance 0               
     
-    #pragma omp parallel for schedule(dynamic)
+    
     for(int i = 0; i < N; i++) {
         int s, min;
         for (int z = 0; i < N; i++) {
