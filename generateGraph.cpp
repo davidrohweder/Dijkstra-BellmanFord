@@ -84,9 +84,9 @@ void printGraph(Graph* graph) {
         printf("{");
         for (int j = 0; j < N; j++){
             if (j == N -1) {
-                printf("%lld", graph->graph[i * N + j]);
+                printf("%ld", graph->graph[i * N + j]);
             } else {
-                printf("%lld, ", graph->graph[i * N + j]);
+                printf("%ld, ", graph->graph[i * N + j]);
             }
         }
         printf("}\n");
