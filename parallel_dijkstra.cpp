@@ -28,30 +28,25 @@
 void parallel_Dijkstra(Graph* graph, int P)
 {
     bool* visited = new bool[N];
-    
+
     omp_set_num_threads(P);
 
     for(int i = 0; i < N; i++) {
-        graph->parallel_distance[i] = INT_MAX;
+        graph->serial_distance[i] = INT_MAX;
         visited[i] = false;    
     } // initalize all elements in distance vector to "infinity"
-    
-    graph->parallel_distance[graph->src] = 0; // source vertex has distance 0               
-    
+
+    graph->serial_distance[graph->src] = 0; // source vertex has distance 0               
+
+
     #pragma omp parallel for schedule(dynamic) num_threads(P)
     for(int i = 0; i < N; i++) {
-        int s, min;
-        for (int z = 0; z < N; z++) {
-            if(visited[z] == false && graph->serial_distance[z] <= min) {
-                min = graph->serial_distance[z];
-                s = z;
-            }
-        } // find vmertex with shortest minimum distance
-        visited[s] = true;
+        int s = smallest_Distance(graph->serial_distance,visited); 
+        visited[s]=true;
 
         for(int j = 0; j < N; j++) {
-            if(!(visited[j]) && graph->graph[s * N + j] && graph->parallel_distance[s] != INT_MAX && graph->parallel_distance[s] + graph->graph[s * N + j] < graph->parallel_distance[j]) {
-                graph->parallel_distance[j]= graph->parallel_distance[s] + graph->graph[s * N + j];
+            if(!visited[j] && graph->graph[s * N + j] && graph->serial_distance[s] != INT_MAX && graph->serial_distance[s] + graph->graph[s * N + j] < graph->serial_distance[j]) {
+                graph->serial_distance[j]= graph->serial_distance[s] + graph->graph[s * N + j];
             }
         } // updating the distance of neighbouring vertex
     }

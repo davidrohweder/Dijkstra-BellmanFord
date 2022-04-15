@@ -31,6 +31,8 @@ typedef struct Graph{
 
 void get_walltime(double*);
 
+int smallest_Distance(int[], bool[]);
+
 void serial_Dijkstra(Graph*);
 
 void parallel_Dijkstra(Graph*, int);
