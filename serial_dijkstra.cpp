@@ -37,7 +37,7 @@ void serial_Dijkstra(Graph* graph)
     
     for(int i = 0; i < N; i++) {
         int s, min;
-        for (int z = 0; i < N; i++) {
+        for (int z = 0; i < N; z++) {
             if(visited[z] == 0 && graph->serial_distance[z] <= min) {
             min = graph->serial_distance[z];
             s = z;

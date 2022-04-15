@@ -14,13 +14,13 @@
 
 
 typedef struct Graph{
-    long long* graph;
+    long* graph;
     int src;
-    long* serial_distance;
-    long * parallel_distance;
+    int* serial_distance;
+    int * parallel_distance;
 } Graph;
 
-#define N 10000
+#define N 5
 
 
 // **** End Global Declarations
@@ -33,7 +33,7 @@ void get_walltime(double*);
 
 void serial_Dijkstra(Graph*);
 
-void parallel_Dijkstra(Graph*);
+void parallel_Dijkstra(Graph*, int);
 
 void generate_Graph(Graph*);
 
