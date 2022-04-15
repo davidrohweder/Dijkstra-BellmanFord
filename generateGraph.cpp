@@ -47,7 +47,6 @@ void generate_Graph(Graph* graph_setup) {
 
     // Fill Graph
     for (int i = 0; i < N; i++) {
-        printf("{");
         for (int j = 0; j < N; j++){
 
             int chance1 = rand() % 2;
@@ -59,9 +58,8 @@ void generate_Graph(Graph* graph_setup) {
                 graph_setup->graph[j * N + i] = randNum;
                 connected[i * N + j] = 1;
             } // reduce lilkey hood to have connections . also do not change connection if exists
-            printf(",%d,", graph_setup->graph[i * N + j]);
+
         }
-        printf("}\n");
     }
 
     // Cleanup
@@ -73,7 +71,11 @@ void printGraph(Graph* graph) {
    for (int i = 0; i < N; i++) {
         printf("{");
         for (int j = 0; j < N; j++){
-            printf(",%d,", graph->graph[i * N + j]);
+            if (j == N -1) {
+                printf("%d", graph->graph[i * N + j]);
+            } else {
+                printf("%d, ", graph->graph[i * N + j]);
+            }
         }
         printf("}\n");
     }

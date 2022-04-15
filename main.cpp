@@ -34,6 +34,7 @@ int main(int argc, char *argv[]) {
     Graph* graph = new Graph; 
 
     generate_Graph(graph);
+    printGraph(graph);
 
     // *** End Setup Environment
 

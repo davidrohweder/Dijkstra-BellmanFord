@@ -42,5 +42,7 @@ void generate_Graph(Graph*);
 
 void graph_Cleanup(Graph*);
 
+void printGraph(Graph*);
+
 
 // **** End Function Prototypes
